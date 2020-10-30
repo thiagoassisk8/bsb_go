@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ranking123'),
+        title: Text('Ranking'),
         backgroundColor: Colors.green,
         leading: GestureDetector(
           onTap: () {},
