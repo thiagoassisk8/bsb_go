@@ -15,12 +15,11 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home> {
   @override
-
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ranking'),
+        title: Text('Ranking123'),
         backgroundColor: Colors.green,
         leading: GestureDetector(
           onTap: () {},
