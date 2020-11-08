@@ -3,7 +3,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
 
 
-class MapPage extends StatelessWidget with NavigationStates {
+class MapPage extends StatefulWidget with NavigationStates{
+  @override
+  _MapPageState createState() => _MapPageState();
+}
+
+class _MapPageState extends State<MapPage>{
   GoogleMapController mapController;
 
   // Catedral de Brasília
