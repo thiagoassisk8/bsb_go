@@ -4,12 +4,10 @@ import 'package:sidebar_animation/pages/Ranking.dart';
 import 'package:sidebar_animation/pages/circuito_andamento.dart';
 import 'package:sidebar_animation/pages/config.dart';
 import 'package:sidebar_animation/pages/mappage.dart';
-import '../pages/myaccountspage.dart';
-import '../pages/myorderspage.dart';
-import '../pages/homepage.dart';
+
 
 enum NavigationEvents {
-  MappPage,
+  MapPage,
   Circuitos,
   CircuitosAndamento,
   Ranking,
@@ -22,13 +20,13 @@ abstract class NavigationStates {}
 
 class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
   @override
-  NavigationStates get initialState => MappPage();
+  NavigationStates get initialState => MapPage();
 
   @override
   Stream<NavigationStates> mapEventToState(NavigationEvents event) async* {
     switch (event) {
-      case NavigationEvents.MappPage:
-        yield MappPage();
+      case NavigationEvents.MapPage:
+        yield MapPage();
         break;
       case NavigationEvents.Circuitos:
         yield Circuitos();

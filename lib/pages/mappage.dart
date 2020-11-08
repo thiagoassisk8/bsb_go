@@ -3,7 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
 
 
-class MappPage extends StatelessWidget with NavigationStates {
+class MapPage extends StatelessWidget with NavigationStates {
   GoogleMapController mapController;
 
   // Catedral de Brasília
@@ -95,7 +95,7 @@ class MappPage extends StatelessWidget with NavigationStates {
       ),
     );
 
-   /* setState(() {
+    setState(() {
       markers.add(catedral);
       markers.add(congresso);
       markers.add(rodoviaria);
@@ -104,7 +104,7 @@ class MappPage extends StatelessWidget with NavigationStates {
       markers.add(torreTV);
       markers.add(maneGarrincha);
       markers.add(memorialJK);
-    }); */
+    });
   }
 
 
