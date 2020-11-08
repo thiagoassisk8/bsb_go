@@ -95,7 +95,7 @@ class MappPage extends StatelessWidget with NavigationStates {
       ),
     );
 
-    setState(() {
+   /* setState(() {
       markers.add(catedral);
       markers.add(congresso);
       markers.add(rodoviaria);
@@ -104,7 +104,7 @@ class MappPage extends StatelessWidget with NavigationStates {
       markers.add(torreTV);
       markers.add(maneGarrincha);
       markers.add(memorialJK);
-    });
+    }); */
   }
 
 
