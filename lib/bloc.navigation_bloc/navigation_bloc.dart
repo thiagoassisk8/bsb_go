@@ -4,6 +4,7 @@ import 'package:sidebar_animation/pages/Ranking.dart';
 import 'package:sidebar_animation/pages/circuito_andamento.dart';
 import 'package:sidebar_animation/pages/config.dart';
 import 'package:sidebar_animation/pages/mappage.dart';
+import 'package:sidebar_animation/pages/suporte.dart';
 
 
 enum NavigationEvents {
@@ -40,10 +41,10 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
       case NavigationEvents.Configuracoes:
         yield Configuracoes();
         break;
-     /* case NavigationEvents.Ranking:
+      case NavigationEvents.Suporte:
         yield Suporte();
         break;
-         case NavigationEvents.Ranking:
+     /*    case NavigationEvents.Ranking:
         yield Logout();
         break;*/
     }

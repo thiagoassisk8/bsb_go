@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
@@ -79,6 +80,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           "Usuário",
                           style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w800),
                         ),
+                        subtitle: Text(
+                          "Pontos: 3500",
+                          style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800)),
                         leading: CircleAvatar(
                           child: Icon(
                             Icons.perm_identity,

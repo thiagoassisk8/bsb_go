@@ -116,7 +116,19 @@ class _MapPageState extends State<MapPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
+      extendBodyBehindAppBar: true,
+
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        elevation: 0,
+        title: Image.asset ('imagens/LOGO BSB GO.png',
+            height: 110,
+            width: 110,
+
+
+      ),),
+    body: GoogleMap(
         onMapCreated: _onMapCreated,
         initialCameraPosition: CameraPosition(
           target: LatLng(lat, long),

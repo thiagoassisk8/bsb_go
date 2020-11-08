@@ -54,31 +54,78 @@ class Ranking extends StatelessWidget with NavigationStates {
                             fontSize: 15.5))),
               ],
             )),
+        Divider(
+          height: 10,
+          thickness: 1,
+          color: Colors.white.withOpacity(1),
+          indent: 0,
+          endIndent: 0,
+        ),
         Table(
           textDirection: TextDirection.rtl,
           //defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
-          border: TableBorder.all(width: 3.0, color: Colors.white),
+          border: TableBorder(horizontalInside: BorderSide(width: 1, color: Colors.white, style: BorderStyle.solid)),
           children: [
             TableRow(
               children: [
-                Text("1000",
+                Text("\n3500",
+                    textAlign: TextAlign.center,
                     textScaleFactor: 1.5,
                     style: TextStyle(
                         fontFamily: 'RobotoMono',
-                        color: Colors.white,
-                        fontSize: 15.0)),
-                Text("Usuário 1",
+                        color: Colors.white)),
+                Text("\nUsuário 1",
                     textScaleFactor: 1.5,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontFamily: 'RobotoMono',
-                        color: Colors.white,
-                        fontSize: 15.0)),
-                Image.asset("imagens/1lugar.png", scale: 5),
+                        color: Colors.white)),
+                Image.asset("imagens/1lugar.png", scale: 5,
+                  height: 70,
+                  width: 70,),
               ],
             ),
-            _criarLinhaTable("100, Usuário1, 1"),
-            _criarLinhaTable("50, Usuário2,"),
-            _criarLinhaTable("0, Usuário3, 3"),
+            TableRow(
+              children: [
+                Text("\n1500",
+                    textAlign: TextAlign.center,
+                    textScaleFactor: 1.5,
+                    style: TextStyle(
+                        fontFamily: 'RobotoMono',
+                        color: Colors.white)),
+                Text("\nUsuário 2",
+                    textScaleFactor: 1.5,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'RobotoMono',
+                        color: Colors.white)),
+                Image.asset("imagens/2lugar.png", scale: 5,
+                  height: 70,
+                  width: 70,),
+              ],
+            ),
+            TableRow(
+              children: [
+                Text("\n1000",
+                    textAlign: TextAlign.center,
+                    textScaleFactor: 1.5,
+                    style: TextStyle(
+                        fontFamily: 'RobotoMono',
+                        color: Colors.white)),
+                Text("\nUsuário 3",
+                    textScaleFactor: 1.5,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'RobotoMono',
+                        color: Colors.white)),
+                Image.asset("imagens/3lugar.png", scale: 5,
+                  height: 70,
+                  width: 70,),
+              ],
+            ),
+            _criarLinhaTable("100,Usuário 4, 4"),
+            _criarLinhaTable("100,Usuário 5, 5"),
+
           ],
         ),
       ],
@@ -92,9 +139,11 @@ class Ranking extends StatelessWidget with NavigationStates {
           alignment: Alignment.center,
           child: Text(
             name,
-            style: TextStyle(fontSize: 20.0),
+            textScaleFactor: 1.5,
+            style: TextStyle(fontFamily: 'RobotoMono',
+                color: Colors.white),
           ),
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(20.0),
         );
       }).toList(),
     );
