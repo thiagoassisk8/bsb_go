@@ -1,10 +1,10 @@
-# bsb_go
+# sidebar_animation
 
-A new Flutter application.
+A flutter project for sidebar animation and page links
 
 ## Getting Started
 
-Projeto referente a disciplina Estágio Supervisionado.
+This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 

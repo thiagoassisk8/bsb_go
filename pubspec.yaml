@@ -1,9 +1,5 @@
-name: bsb_go
-description: A new Flutter application.
-
-# The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+name: sidebar_animation
+description: A flutter project for sidebar animation and page links
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -24,14 +20,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^0.1.2
+  flutter_bloc: ^2.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -45,15 +42,16 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
   assets:
     - imagens/verde.jpg
     - imagens/bsbgocapa.png
     - imagens/LOGO BSB GO.png
     - imagens/signin_bt.png
-
+    - imagens/1lugar.png
+    - imagens/2lugar.png
+    - imagens/3lugar.png
+  #  - images/a_dot_burr.jpeg
+  #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

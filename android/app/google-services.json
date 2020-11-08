@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "372094781525",
+    "firebase_url": "https://bsbgo-f60da.firebaseio.com",
+    "project_id": "bsbgo-f60da",
+    "storage_bucket": "bsbgo-f60da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372094781525:android:db15fb9c6346bb8cf4ecdc",
+        "android_client_info": {
+          "package_name": "bsbgo.bsb_go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372094781525-0h9qqd2fv5vv8q2brrs80nojrj1couev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bsbgo.bsb_go",
+            "certificate_hash": "eaedd4df8f88cc34b115a9d714b2bc13ff479859"
+          }
+        },
+        {
+          "client_id": "372094781525-2adpfnf5a21teg4ucgdgpt99hk441k1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBgWj-MHC7DIvv9Tyqi4amMEdJMwUBMRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372094781525-2adpfnf5a21teg4ucgdgpt99hk441k1t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
