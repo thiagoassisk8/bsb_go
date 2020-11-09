@@ -48,6 +48,7 @@ class Configuracoes extends StatelessWidget with NavigationStates {
                 ),
               ),
             ),
+            Divider(height: 0, thickness: 2, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Flexible(
               child: FlatButton(
                 onPressed: () {},
@@ -79,6 +80,7 @@ class Configuracoes extends StatelessWidget with NavigationStates {
                 ),
               ),
             ),
+            Divider(height: 0, thickness: 2, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
 
 
           ]
