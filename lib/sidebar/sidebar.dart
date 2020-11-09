@@ -75,21 +75,13 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       SizedBox(
                         height: 100,
                       ),
-                      ListTile(
-                        title: Text(
-                          "Usuário",
-                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w800),
-                        ),
-                        subtitle: Text(
-                          "Pontos: 3500",
-                          style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800)),
-                        leading: CircleAvatar(
-                          child: Icon(
-                            Icons.perm_identity,
-                            color: Colors.white,
-                          ),
-                          radius: 40,
-                        ),
+                      MenuItem(
+                        icon: Icons.login_outlined,
+                        title: "Login",
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.LoginScreen);
+                        },
                       ),
                       Divider(
                         height: 64,

@@ -52,6 +52,7 @@ flutter:
     - imagens/1lugar.png
     - imagens/2lugar.png
     - imagens/3lugar.png
+    - assets/logos/google.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

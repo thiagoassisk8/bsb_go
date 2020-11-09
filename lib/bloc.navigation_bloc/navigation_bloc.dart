@@ -5,6 +5,7 @@ import 'package:sidebar_animation/pages/circuito_andamento.dart';
 import 'package:sidebar_animation/pages/config.dart';
 import 'package:sidebar_animation/pages/mappage.dart';
 import 'package:sidebar_animation/pages/suporte.dart';
+import 'package:sidebar_animation/pages/telalogin.dart';
 
 
 enum NavigationEvents {
@@ -15,6 +16,7 @@ enum NavigationEvents {
   Suporte,
   Logout,
   Configuracoes,
+  LoginScreen,
 }
 
 abstract class NavigationStates {}
@@ -43,6 +45,9 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
         break;
       case NavigationEvents.Suporte:
         yield Suporte();
+        break;
+      case NavigationEvents.LoginScreen:
+        yield LoginScreen();
         break;
      /*    case NavigationEvents.Ranking:
         yield Logout();
