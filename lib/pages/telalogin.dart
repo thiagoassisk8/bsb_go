@@ -9,7 +9,6 @@ class LoginScreen extends StatefulWidget with NavigationStates {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
-
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,19 +21,19 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           alignment: Alignment.centerLeft,
 
-          height: 60.0,
+          height: 20.0,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 24.0),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.white,
+                color: Colors.green,
               ),
               hintText: 'Enter your Email',
 
@@ -94,37 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Image.asset(
-            "imagens/bsbgocapa.png",
-            fit: BoxFit.cover,
-            //height: 1000.0
-          ),
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value;
-                });
-              },
-            ),
-          ),
-          Text(
-            'Remember me',
 
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _buildLoginBtn() {
     return Container(
@@ -141,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Text(
           'LOGIN',
           style: TextStyle(
-            color: Color(0xFF527DAA),
+            color: Colors.green,
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
@@ -199,18 +168,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 30.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _buildSocialBtn(
-                () => print('Login with Facebook'),
-            AssetImage(
-              'assets/logos/facebook.jpg',
-            ),
-          ),
           _buildSocialBtn(
                 () => print('Login with Google'),
             AssetImage(
-              'assets/logos/google.jpg',
+              'imagens/google.png',
             ),
           ),
         ],
@@ -299,7 +262,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       _buildPasswordTF(),
                       _buildForgotPasswordBtn(),
-                      _buildRememberMeCheckbox(),
                       _buildLoginBtn(),
                       _buildSignInWithText(),
                       _buildSocialBtnRow(),
