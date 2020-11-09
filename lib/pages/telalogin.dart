@@ -9,6 +9,8 @@ class LoginScreen extends StatefulWidget with NavigationStates {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
+
+
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Icons.email,
                 color: Colors.green,
               ),
-              hintText: 'Enter your Email',
+              hintText: 'Digite seu Email',
 
             ),
           ),
@@ -48,10 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Password',
-
-        ),
+        Text('Senha',),
         SizedBox(height: 10.0),
         Container(
           alignment: Alignment.centerLeft,
@@ -60,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: TextField(
             obscureText: true,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
@@ -68,10 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: Colors.green,
               ),
-              hintText: 'Enter your Password',
-
+              hintText: 'Digite sua senha',
             ),
           ),
         ),
@@ -86,8 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () => print('Forgot Password Button Pressed'),
         padding: EdgeInsets.only(right: 0.0),
         child: Text(
-          'Forgot Password?',
-
+          'Esqueci minha senha',
         ),
       ),
     );
@@ -101,14 +98,15 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: (
+
+            ) => print('Login Button Pressed'),
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
         color: Colors.white,
-        child: Text(
-          'LOGIN',
+        child: Text('LOGIN',
           style: TextStyle(
             color: Colors.green,
             letterSpacing: 1.5,
@@ -125,17 +123,14 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       children: <Widget>[
         Text(
-          '- OR -',
+          ' OU ',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontWeight: FontWeight.w400,
           ),
         ),
         SizedBox(height: 20.0),
-        Text(
-          'Sign in with',
-
-        ),
+        Text('Sign in with',),
       ],
     );
   }
@@ -154,15 +149,10 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.black26,
               offset: Offset(0, 2),
               blurRadius: 6.0,
-            ),
-          ],
+            ),],
           image: DecorationImage(
             image: logo,
-          ),
-        ),
-      ),
-    );
-  }
+          ),),),);}
 
   Widget _buildSocialBtnRow() {
     return Padding(
@@ -172,9 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           _buildSocialBtn(
                 () => print('Login with Google'),
-            AssetImage(
-              'imagens/google.png',
-            ),
+            AssetImage('imagens/google.png',),
           ),
         ],
       ),
@@ -188,17 +176,17 @@ class _LoginScreenState extends State<LoginScreen> {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an Account? ',
+              text: 'Não possui conta? ',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.w400,
               ),
             ),
             TextSpan(
-              text: 'Sign Up',
+              text: 'Cadastre-se',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -212,50 +200,27 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
+      backgroundColor: Colors.grey[50],
+      body:
+      AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark,
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-
-                      Color(0xFF61A4F1),
-                      Color(0xFF478DE0),
-                      Color(0xFF398AE5),
-                    ],
-                    stops: [0.1, 0.4, 0.7, 0.9],
-                  ),
-                ),
-              ),
-              Container(
-                height: double.infinity,
-                child: SingleChildScrollView(
+          child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 90.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'Sign In',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Image.asset(
+                        "imagens/LOGO BSB GO.png",
+                        fit: BoxFit.fill,
+                        height: 60.0,
                       ),
-                      SizedBox(height: 30.0),
+                      SizedBox(height: 50.0),
                       _buildEmailTF(),
                       SizedBox(
                         height: 30.0,
@@ -270,10 +235,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               )
-            ],
-          ),
-        ),
-      ),
-    );
+              ),
+          );
+
+
   }
 }
