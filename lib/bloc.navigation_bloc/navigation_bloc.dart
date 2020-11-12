@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:sidebar_animation/pages/Circuitos.dart';
-import 'package:sidebar_animation/pages/Ranking.dart';
-import 'package:sidebar_animation/pages/circuito_andamento.dart';
-import 'package:sidebar_animation/pages/config.dart';
-import 'package:sidebar_animation/pages/mappage.dart';
-import 'package:sidebar_animation/pages/suporte.dart';
-import 'package:sidebar_animation/pages/telalogin.dart';
+import 'package:bsb_go/pages/Circuitos.dart';
+import 'package:bsb_go/pages/Ranking.dart';
+import 'package:bsb_go/pages/circuito_andamento.dart';
+import 'package:bsb_go/pages/config.dart';
+import 'package:bsb_go/pages/mappage.dart';
+import 'package:bsb_go/pages/suporte.dart';
+import 'package:bsb_go/pages/telalogin.dart';
 
 
 enum NavigationEvents {
