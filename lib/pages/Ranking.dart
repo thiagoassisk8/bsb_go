@@ -186,9 +186,13 @@ class Ranking extends StatelessWidget with NavigationStates {
 
 
   Future<Map> getData() async {
-    QuerySnapshot snapshot = await Firestore.instance.collection('circuitos').getDocuments();
+    QuerySnapshot snapshot = await Firestore.instance.collection('usuarios').getDocuments();
     snapshot.documents.forEach((d) {
+      print("------------------------------");
+      print("Nome: ${d.data['nome']}");
+      print("Pontuação: ${d.data['pontuacao']}");
       print(d.data);
+      print("------------------------------");
     });
   }
 
