@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
-
+import 'dart:async';
 
 class CircuitosAndamento extends StatelessWidget with NavigationStates {
   @override
@@ -15,7 +15,9 @@ class CircuitosAndamento extends StatelessWidget with NavigationStates {
       ),
 
       backgroundColor: Colors.green,
-      body: FlatButton(
+      body:
+
+      FlatButton(
         onPressed: () {},
         color: Colors.green,
         child: Padding(

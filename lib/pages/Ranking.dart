@@ -191,7 +191,7 @@ class Ranking extends StatelessWidget with NavigationStates {
       print("------------------------------");
       print("Nome: ${d.data['nome']}");
       print("Pontuação: ${d.data['pontuacao']}");
-      print(d.data);
+      //print(d.data);
       print("------------------------------");
     });
   }
