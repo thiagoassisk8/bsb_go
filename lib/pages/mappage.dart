@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 
 
 class MapPage extends StatefulWidget with NavigationStates{
@@ -10,10 +11,18 @@ class MapPage extends StatefulWidget with NavigationStates{
 
 class _MapPageState extends State<MapPage>{
   GoogleMapController mapController;
+  final Geolocator _geolocator = Geolocator();
+
+  // For storing the current position
+  Position _currentPosition;
+
+  // Torre de Tv
+  double lat = -15.7905508;
+  double long = -47.8949667;
 
   // Catedral de Brasília
-  double lat = -15.7983367;
-  double long = -47.8777281;
+  //double lat = -15.7983367;
+ // double long = -47.8777281;
 
   Set<Marker> markers = new Set<Marker>();
 
@@ -112,12 +121,41 @@ class _MapPageState extends State<MapPage>{
     });
   }
 
+  _getCurrentLocation() async {
+    await _geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
+        .then((Position position) async {
+      setState(() {
+        // Store the position in the variable
+        _currentPosition = position;
+
+        print('CURRENT POS: $_currentPosition');
+
+        // For moving the camera to current location
+        mapController.animateCamera(
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              target: LatLng(position.latitude, position.longitude),
+              zoom: 12.5,
+            ),
+          ),
+        );
+      });
+    }).catchError((e) {
+      print(e);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -125,16 +163,57 @@ class _MapPageState extends State<MapPage>{
         title: Image.asset ('imagens/LOGO BSB GO.png',
             height: 110,
             width: 110,
-
-
-      ),),
-    body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        initialCameraPosition: CameraPosition(
-          target: LatLng(lat, long),
-          zoom: 12.5,
         ),
-        markers: markers,
+      ),
+      body: Stack(
+        children: <Widget>[
+          GoogleMap(
+            initialCameraPosition: CameraPosition(
+              target: LatLng(lat, long),
+              zoom: 12.5,
+            ),
+            myLocationEnabled: true,
+            myLocationButtonEnabled: false,
+            mapType: MapType.normal,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: false,
+            onMapCreated: _onMapCreated,
+          ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
+                child: ClipOval(
+                  child: Material(
+                    color: Colors.grey[368], // button color
+                    child: InkWell(
+                      splashColor: Colors.grey, // inkwell color
+                      child: SizedBox(
+                        width: 56,
+                        height: 56,
+                        child: Icon(Icons.my_location),
+                      ),
+                      onTap: () {
+                        mapController.animateCamera(
+                          CameraUpdate.newCameraPosition(
+                            CameraPosition(
+                              target: LatLng(
+                                _currentPosition.latitude,
+                                _currentPosition.longitude,
+                              ),
+                              zoom: 12.5,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
