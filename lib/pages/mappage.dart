@@ -177,6 +177,7 @@ class _MapPageState extends State<MapPage>{
             mapType: MapType.normal,
             zoomGesturesEnabled: true,
             zoomControlsEnabled: false,
+            markers: markers,
             onMapCreated: _onMapCreated,
           ),
           SafeArea(
