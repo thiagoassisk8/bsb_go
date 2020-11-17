@@ -13,6 +13,8 @@ class _MapPageState extends State<MapPage>{
   GoogleMapController mapController;
   final Geolocator _geolocator = Geolocator();
 
+  BitmapDescriptor pinLocationIcon;
+
   // For storing the current position
   Position _currentPosition;
 
@@ -26,6 +28,12 @@ class _MapPageState extends State<MapPage>{
 
   Set<Marker> markers = new Set<Marker>();
 
+  void setCustomMapPin() async {
+    pinLocationIcon = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(devicePixelRatio: 2.5),
+        'imagens/destination_map_marker.png');
+  }
+
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
 
@@ -33,6 +41,7 @@ class _MapPageState extends State<MapPage>{
     final Marker catedral = Marker(
       markerId: new MarkerId("1"),
       position: LatLng(-15.7983367, -47.8777281),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Catedral de Brasília",
           snippet: "Brasília/DF"
@@ -43,6 +52,7 @@ class _MapPageState extends State<MapPage>{
     final Marker congresso = Marker(
       markerId: new MarkerId("2"),
       position: LatLng(-15.7997067, -47.8663516),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Congresso Nacional",
           snippet: "Brasília/DF"
@@ -53,6 +63,7 @@ class _MapPageState extends State<MapPage>{
     final Marker rodoviaria = Marker(
       markerId: new MarkerId("3"),
       position: LatLng(-15.7937789, -47.8857071),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Rodoviário do Plano Piloto",
           snippet: "Brasília/DF"
@@ -63,6 +74,7 @@ class _MapPageState extends State<MapPage>{
     final Marker pracaTresPoderes = Marker(
       markerId: new MarkerId("4"),
       position: LatLng(-15.8006637, -47.8634698),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Praça dos Três Poderes",
           snippet: "Brasília/DF"
@@ -73,6 +85,7 @@ class _MapPageState extends State<MapPage>{
     final Marker museuNacional = Marker(
       markerId: new MarkerId("5"),
       position: LatLng(-15.797301, -47.8803237),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Museu Nacional",
           snippet: "Brasília/DF"
@@ -83,6 +96,7 @@ class _MapPageState extends State<MapPage>{
     final Marker torreTV = Marker(
       markerId: new MarkerId("6"),
       position: LatLng(-15.7905508, -47.8949667),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Torre de TV",
           snippet: "Brasília/DF"
@@ -93,6 +107,7 @@ class _MapPageState extends State<MapPage>{
     final Marker maneGarrincha = Marker(
       markerId: new MarkerId("7"),
       position: LatLng(-15.7835139, -47.9013997),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Estádio Mané Garrincha",
           snippet: "Brasília/DF"
@@ -103,6 +118,7 @@ class _MapPageState extends State<MapPage>{
     final Marker memorialJK = Marker(
       markerId: new MarkerId("8"),
       position: LatLng(-15.7842011, -47.9155431),
+      icon: pinLocationIcon,
       infoWindow: InfoWindow(
           title: "Memorial JK",
           snippet: "Brasília/DF"
@@ -150,6 +166,7 @@ class _MapPageState extends State<MapPage>{
   void initState() {
     super.initState();
     _getCurrentLocation();
+    setCustomMapPin();
   }
 
   @override
@@ -184,12 +201,12 @@ class _MapPageState extends State<MapPage>{
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
+                padding: const EdgeInsets.only(right: 15.0, bottom: 15.0),
                 child: ClipOval(
                   child: Material(
-                    color: Colors.grey[368], // button color
+                    color: Colors.green, // button color
                     child: InkWell(
-                      splashColor: Colors.grey, // inkwell color
+                      splashColor: Colors.white, // inkwell color
                       child: SizedBox(
                         width: 56,
                         height: 56,
