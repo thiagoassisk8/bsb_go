@@ -12,6 +12,37 @@ class Ranking extends StatefulWidget with NavigationStates {
 
 class _RankingState extends State<Ranking> {
   var users = new List<User>();
+  List<TableRow> rows = new List<TableRow>();
+
+  criarLinhas() {
+    print(users.length);
+    for(User user in users) {
+
+      rows.add(
+          new TableRow(
+            children: [
+              Text("\n${user.nome}",
+                  textAlign: TextAlign.center,
+                  textScaleFactor: 1.5,
+                  style: TextStyle(
+                      fontFamily: 'RobotoMono',
+                      color: Colors.white)),
+              Text("\n${user.pontuacao}",
+                  textScaleFactor: 1.5,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: 'RobotoMono',
+                      color: Colors.white)),
+              Image.asset("imagens/2lugar.png", scale: 5,
+                height: 70,
+                width: 70,
+              ),
+            ],
+          )
+      );
+      return SingleChildScrollView(child: new Table(children: rows));
+    }
+  }
 
   _getUsers() {
     API.getUsers().then((response) {
@@ -36,23 +67,91 @@ class _RankingState extends State<Ranking> {
         backgroundColor: Colors.green[700],
       ),
       backgroundColor: Colors.green,
-      body: listaUsuarios(),
+      body: criarTabela(),
 
     );
   }
 
-  listaUsuarios() {
-    return ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              users[index].nome,
-              style: TextStyle(fontSize: 20.0),
-            ),
-          );
-        }
+  criarTabela() {
+    return Column(
+        children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Text("Posição",
+          textScaleFactor: 1.5,
+          style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontFamily: 'RobotoMono',
+          color: Colors.white,
+          fontSize: 15.5))),
+          Padding(
+          padding: EdgeInsets.only(left: 50.0),
+          child: Text("ID",
+            textScaleFactor: 1.5,
+            style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: 'RobotoMono',
+            color: Colors.white,
+            fontSize: 15.5))),
+          Padding(
+          padding: EdgeInsets.only(left: 30.0),
+          child: Text("  Pontuação",
+            textScaleFactor: 1.5,
+            style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: 'RobotoMono',
+            color: Colors.white,
+            fontSize: 15.5))),
+          ],
+        )
+      ),
+        Divider(
+          height: 10,
+          thickness: 1,
+          color: Colors.white.withOpacity(1),
+          indent: 0,
+          endIndent: 0,
+        ),
+      Table(
+        border: TableBorder(horizontalInside: BorderSide(width: 1, color: Colors.white, style: BorderStyle.solid)),
+        children:[
+          for(int i = 0; i < users.length; ++i )  TableRow(
+            children: [
+              Text("\n${i+1}",
+                  textAlign: TextAlign.center,
+                  textScaleFactor: 1.5,
+                  style: TextStyle(
+                      fontFamily: 'RobotoMono',
+                      color: Colors.white)
+              ),
+              Text("\n${users[i].nome}",
+                  textAlign: TextAlign.center,
+                  textScaleFactor: 1.5,
+                  style: TextStyle(
+                      fontFamily: 'RobotoMono',
+                      color: Colors.white)
+              ),
+              Text("\n${users[i].pontuacao}",
+                  textScaleFactor: 1.5,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: 'RobotoMono',
+                      color: Colors.white),
+              ),
+            ],
+          )]
+      ),
+    ]
     );
   }
+
 
 }
