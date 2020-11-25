@@ -14,43 +14,13 @@ class _RankingState extends State<Ranking> {
   var users = new List<User>();
   List<TableRow> rows = new List<TableRow>();
 
-  criarLinhas() {
-    print(users.length);
-    for(User user in users) {
-
-      rows.add(
-          new TableRow(
-            children: [
-              Text("\n${user.nome}",
-                  textAlign: TextAlign.center,
-                  textScaleFactor: 1.5,
-                  style: TextStyle(
-                      fontFamily: 'RobotoMono',
-                      color: Colors.white)),
-              Text("\n${user.pontuacao}",
-                  textScaleFactor: 1.5,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: 'RobotoMono',
-                      color: Colors.white)),
-              Image.asset("imagens/2lugar.png", scale: 5,
-                height: 70,
-                width: 70,
-              ),
-            ],
-          )
-      );
-      return SingleChildScrollView(child: new Table(children: rows));
-    }
-  }
-
   _getUsers() {
     API.getUsers().then((response) {
       setState(() {
         Iterable lista = json.decode(response.body);
         users = lista.map((model) => User.fromJson(model)).toList();
       });
-
+      //users.sort((a, b) => a.pontuacao.compareTo(b.pontuacao));
     });
   }
 
@@ -68,7 +38,6 @@ class _RankingState extends State<Ranking> {
       ),
       backgroundColor: Colors.green,
       body: criarTabela(),
-
     );
   }
 
@@ -113,13 +82,13 @@ class _RankingState extends State<Ranking> {
           ],
         )
       ),
-        Divider(
-          height: 10,
-          thickness: 1,
-          color: Colors.white.withOpacity(1),
-          indent: 0,
-          endIndent: 0,
-        ),
+      Divider(
+        height: 10,
+        thickness: 1,
+        color: Colors.white.withOpacity(1),
+        indent: 0,
+        endIndent: 0,
+      ),
       Table(
         border: TableBorder(horizontalInside: BorderSide(width: 1, color: Colors.white, style: BorderStyle.solid)),
         children:[
