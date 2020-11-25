@@ -46,7 +46,7 @@ class _MapPageState extends State<MapPage>{
           title: "Catedral de Brasília",
           snippet: "Brasília/DF"
       ),
-      onTap: () {AdddInfoPontos(context);}
+      onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Congresso
@@ -58,7 +58,7 @@ class _MapPageState extends State<MapPage>{
           title: "Congresso Nacional",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Rodoviária do Plano Piloto
@@ -70,7 +70,7 @@ class _MapPageState extends State<MapPage>{
           title: "Rodoviário do Plano Piloto",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Praça dos Três Poderes
@@ -82,7 +82,7 @@ class _MapPageState extends State<MapPage>{
           title: "Praça dos Três Poderes",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Museu Nacional
@@ -94,7 +94,7 @@ class _MapPageState extends State<MapPage>{
           title: "Museu Nacional",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Torre de Tv
@@ -106,7 +106,7 @@ class _MapPageState extends State<MapPage>{
           title: "Torre de TV",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Estádio Mané Garrincha
@@ -118,7 +118,7 @@ class _MapPageState extends State<MapPage>{
           title: "Estádio Mané Garrincha",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     // Marker Memorial JK
@@ -130,7 +130,7 @@ class _MapPageState extends State<MapPage>{
           title: "Memorial JK",
           snippet: "Brasília/DF"
       ),
-        onTap: () {AdddInfoPontos(context);}
+        onTap: () {AddInfoPontos(context);}
     );
 
     setState(() {
@@ -146,14 +146,14 @@ class _MapPageState extends State<MapPage>{
   }
 
 
-  void AdddInfoPontos(context) {
+  void AddInfoPontos(context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext bc) {
         return Container(
           height: MediaQuery.of(context).size.height * .40,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(28.0),
             child: Column(
               children: <Widget>[
                 Row(
@@ -172,7 +172,6 @@ class _MapPageState extends State<MapPage>{
                     )
                   ],
                 ),
-
               ],
             ),
           ),
