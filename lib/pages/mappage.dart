@@ -201,7 +201,7 @@ class _MapPageState extends State<MapPage>{
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 15.0, bottom: 15.0),
+                padding: const EdgeInsets.only(right: 22.0, bottom: 65.0),
                 child: ClipOval(
                   child: Material(
                     color: Colors.green, // button color
