@@ -4,12 +4,12 @@ import '../bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
 
-class MapPage extends StatefulWidget with NavigationStates{
+class MapPage extends StatefulWidget with NavigationStates {
   @override
   _MapPageState createState() => _MapPageState();
 }
 
-class _MapPageState extends State<MapPage>{
+class _MapPageState extends State<MapPage> {
   GoogleMapController mapController;
   final Geolocator _geolocator = Geolocator();
 
@@ -24,7 +24,7 @@ class _MapPageState extends State<MapPage>{
 
   // Catedral de Brasília
   //double lat = -15.7983367;
- // double long = -47.8777281;
+  // double long = -47.8777281;
 
   Set<Marker> markers = new Set<Marker>();
 
@@ -39,98 +39,114 @@ class _MapPageState extends State<MapPage>{
 
     // Marker Catedral
     final Marker catedral = Marker(
-      markerId: new MarkerId("1"),
-      position: LatLng(-15.7983367, -47.8777281),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Catedral de Brasília",
-          snippet: "Brasília/DF"
-      ),
-      onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("1"),
+        position: LatLng(-15.7983367, -47.8777281),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Catedral de Brasília",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Congresso
     final Marker congresso = Marker(
-      markerId: new MarkerId("2"),
-      position: LatLng(-15.7997067, -47.8663516),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Congresso Nacional",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("2"),
+        position: LatLng(-15.7997067, -47.8663516),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Congresso Nacional",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Rodoviária do Plano Piloto
     final Marker rodoviaria = Marker(
-      markerId: new MarkerId("3"),
-      position: LatLng(-15.7937789, -47.8857071),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Rodoviário do Plano Piloto",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("3"),
+        position: LatLng(-15.7937789, -47.8857071),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Rodoviário do Plano Piloto",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Praça dos Três Poderes
     final Marker pracaTresPoderes = Marker(
-      markerId: new MarkerId("4"),
-      position: LatLng(-15.8006637, -47.8634698),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Praça dos Três Poderes",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("4"),
+        position: LatLng(-15.8006637, -47.8634698),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Praça dos Três Poderes",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Museu Nacional
     final Marker museuNacional = Marker(
-      markerId: new MarkerId("5"),
-      position: LatLng(-15.797301, -47.8803237),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Museu Nacional",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("5"),
+        position: LatLng(-15.797301, -47.8803237),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Museu Nacional",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Torre de Tv
     final Marker torreTV = Marker(
-      markerId: new MarkerId("6"),
-      position: LatLng(-15.7905508, -47.8949667),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Torre de TV",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("6"),
+        position: LatLng(-15.7905508, -47.8949667),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Torre de TV",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Estádio Mané Garrincha
     final Marker maneGarrincha = Marker(
-      markerId: new MarkerId("7"),
-      position: LatLng(-15.7835139, -47.9013997),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Estádio Mané Garrincha",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("7"),
+        position: LatLng(-15.7835139, -47.9013997),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Estádio Mané Garrincha",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     // Marker Memorial JK
     final Marker memorialJK = Marker(
-      markerId: new MarkerId("8"),
-      position: LatLng(-15.7842011, -47.9155431),
-      icon: pinLocationIcon,
-      infoWindow: InfoWindow(
-          title: "Memorial JK",
-          snippet: "Brasília/DF"
-      ),
-        onTap: () {AddInfoPontos(context);}
+        markerId: new MarkerId("8"),
+        position: LatLng(-15.7842011, -47.9155431),
+        icon: pinLocationIcon,
+        infoWindow: InfoWindow(
+            title: "Memorial JK",
+            snippet: "Brasília/DF"
+        ),
+        onTap: () {
+          AddInfoPontos(context);
+        }
     );
 
     setState(() {
@@ -149,33 +165,61 @@ class _MapPageState extends State<MapPage>{
   void AddInfoPontos(context) {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.white,
       builder: (BuildContext bc) {
         return Container(
-          height: MediaQuery.of(context).size.height * .40,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height * .45,
           child: Padding(
-            padding: const EdgeInsets.all(28.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Text("NOME DO LOCAL"),
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(
-                        Icons.cancel,
-                        color: Colors.green,
-                        size: 25,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ],
-                ),
-              ],
-            ),
+                children: <Widget>[
+            Row(
+            children: <Widget>[
+                Text("NOME DO LOCAL",
+                style: TextStyle(
+                    fontSize: 19,
+                    fontFamily: 'RobotoMono',
+                    color: Colors.green)),
+            Spacer(),
+            IconButton(
+              icon: Icon(
+                Icons.cancel,
+                color: Colors.green,
+                size: 25,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+            ],
           ),
-        );
+          Column(
+              children: <Widget>[
+                Image.asset('imagens/infobsb.jpg',
+                ),
+                Row(
+                    children: <Widget>[
+                      FlatButton(
+                          onPressed: null,
+                          padding: EdgeInsets.only(left: 60.0),
+                          child: Image.asset('imagens/gobutton.png',
+                            height: 85,
+                            width: 85,)
+
+                      ),
+                   FlatButton(
+                          onPressed: null,
+                          padding: EdgeInsets.only(left: 50.0),
+                          child: Image.asset('imagens/plusbutton.png',
+                            height: 85,
+                            width: 85,)
+
+                      ),
+                      ]),
+        ]),])));
       },
     );
   }
@@ -220,9 +264,9 @@ class _MapPageState extends State<MapPage>{
         backgroundColor: Colors.transparent,
         centerTitle: true,
         elevation: 0,
-        title: Image.asset ('imagens/LOGO BSB GO.png',
-            height: 110,
-            width: 110,
+        title: Image.asset('imagens/LOGO BSB GO.png',
+          height: 110,
+          width: 110,
         ),
       ),
       body: Stack(
