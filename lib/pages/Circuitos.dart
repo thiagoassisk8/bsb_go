@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
-
+import 'package:bsb_go/pages/mappage.dart';
 
 class Circuitos extends StatelessWidget with NavigationStates {
   final List<String> names = <String>['Congresso Nacional', 'Ponte JK', 'Torre de Tv'];
@@ -20,7 +20,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
           children: <Widget>[
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -43,7 +47,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -66,7 +74,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -89,7 +101,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -112,7 +128,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -135,7 +155,12 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MapPage()));
+                },
+
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -156,7 +181,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -179,7 +208,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -202,7 +235,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15
@@ -225,7 +262,11 @@ class Circuitos extends StatelessWidget with NavigationStates {
             Divider(height: 0, thickness: 1, color: Colors.white.withOpacity(0.8), indent: 0, endIndent: 0,),
             Expanded(
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MapPage()));
+                },
                 color: Colors.green,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15

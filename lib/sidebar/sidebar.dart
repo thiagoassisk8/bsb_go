@@ -128,7 +128,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         onTap: () {
                           onIconPressed();
                           BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.Configuracoes);
-                        },
+                        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                       ),
                       Divider(
                         height: 64,
