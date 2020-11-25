@@ -46,6 +46,7 @@ class _MapPageState extends State<MapPage>{
           title: "Catedral de Brasília",
           snippet: "Brasília/DF"
       ),
+      onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Congresso
@@ -57,6 +58,7 @@ class _MapPageState extends State<MapPage>{
           title: "Congresso Nacional",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Rodoviária do Plano Piloto
@@ -68,6 +70,7 @@ class _MapPageState extends State<MapPage>{
           title: "Rodoviário do Plano Piloto",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Praça dos Três Poderes
@@ -79,6 +82,7 @@ class _MapPageState extends State<MapPage>{
           title: "Praça dos Três Poderes",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Museu Nacional
@@ -90,6 +94,7 @@ class _MapPageState extends State<MapPage>{
           title: "Museu Nacional",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Torre de Tv
@@ -101,6 +106,7 @@ class _MapPageState extends State<MapPage>{
           title: "Torre de TV",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Estádio Mané Garrincha
@@ -112,6 +118,7 @@ class _MapPageState extends State<MapPage>{
           title: "Estádio Mané Garrincha",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     // Marker Memorial JK
@@ -123,6 +130,7 @@ class _MapPageState extends State<MapPage>{
           title: "Memorial JK",
           snippet: "Brasília/DF"
       ),
+        onTap: () {AdddInfoPontos(context);}
     );
 
     setState(() {
@@ -135,6 +143,42 @@ class _MapPageState extends State<MapPage>{
       markers.add(maneGarrincha);
       markers.add(memorialJK);
     });
+  }
+
+
+  void AdddInfoPontos(context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          height: MediaQuery.of(context).size.height * .40,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Text("NOME DO LOCAL"),
+                    Spacer(),
+                    IconButton(
+                      icon: Icon(
+                        Icons.cancel,
+                        color: Colors.green,
+                        size: 25,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
+                  ],
+                ),
+
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   _getCurrentLocation() async {
