@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 
 
 class MapPage extends StatefulWidget with NavigationStates {
+
   @override
   _MapPageState createState() => _MapPageState();
 }
@@ -13,21 +14,20 @@ class _MapPageState extends State<MapPage> {
   GoogleMapController mapController;
   final Geolocator _geolocator = Geolocator();
 
+
+  // ícone verde para o marcador de local
   BitmapDescriptor pinLocationIcon;
 
-  // For storing the current position
   Position _currentPosition;
 
-  // Torre de Tv
+  // localização torre de tv
   double lat = -15.7905508;
   double long = -47.8949667;
 
-  // Catedral de Brasília
-  //double lat = -15.7983367;
-  // double long = -47.8777281;
 
   Set<Marker> markers = new Set<Marker>();
 
+  // define a imagem para o marcador de local
   void setCustomMapPin() async {
     pinLocationIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(devicePixelRatio: 2.5),
@@ -211,13 +211,13 @@ class _MapPageState extends State<MapPage> {
 
                       ),
                    FlatButton(
-                          onPressed: null,
-                          padding: EdgeInsets.only(left: 50.0),
-                          child: Image.asset('imagens/plusbutton.png',
-                            height: 85,
-                            width: 85,)
-
+                      onPressed: null,
+                      padding: EdgeInsets.only(left: 50.0),
+                      child: Image.asset('imagens/plusbutton.png',
+                        height: 85,
+                        width: 85,
                       ),
+                  ),
                       ]),
         ]),])));
       },

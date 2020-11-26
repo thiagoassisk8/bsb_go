@@ -12,7 +12,6 @@ class Ranking extends StatefulWidget with NavigationStates {
 
 class _RankingState extends State<Ranking> {
   var users = new List<User>();
-  List<TableRow> rows = new List<TableRow>();
 
   _getUsers() {
     API.getUsers().then((response) {
