@@ -165,57 +165,69 @@ class _MapPageState extends State<MapPage> {
   void AddInfoPontos(context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.green[700],
       builder: (BuildContext bc) {
         return Container(
           height: MediaQuery
               .of(context)
               .size
-              .height * .45,
+              .height * .88,
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(5.0),
             child: Column(
                 children: <Widget>[
-            Row(
-            children: <Widget>[
-                Text("NOME DO LOCAL",
-                style: TextStyle(
-                    fontSize: 19,
-                    fontFamily: 'RobotoMono',
-                    color: Colors.green)),
-            Spacer(),
-            IconButton(
-              icon: Icon(
-                Icons.cancel,
-                color: Colors.green,
-                size: 25,
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            )
-            ],
-          ),
+
           Column(
               children: <Widget>[
-                Image.asset('imagens/infobsb.jpg',
+                Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Image.asset(
+                      "imagens/infobsb.jpg",
+                      fit: BoxFit.fitWidth,
+                    )),
+                Divider(
+                  height: 10,
+                  thickness: 1,
+                  color: Colors.white.withOpacity(1),
+                  indent: 0,
+                  endIndent: 0,
+                ),
+
+                Row(
+                  children: <Widget>[
+                    Text("  NOME LOCAL                                      250 Pontos\n\n"
+                        "   Aqui ficará a descrição de determinado local\n",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'RobotoMono',
+                            color: Colors.white)),
+
+                  ],
+                ),
+                Divider(
+                  height: 10,
+                  thickness: 1,
+                  color: Colors.white.withOpacity(1),
+                  indent: 0,
+                  endIndent: 0,
                 ),
                 Row(
+
                     children: <Widget>[
                       FlatButton(
                           onPressed: null,
-                          padding: EdgeInsets.only(left: 60.0),
-                          child: Image.asset('imagens/gobutton.png',
-                            height: 85,
-                            width: 85,)
+                          padding: EdgeInsets.fromLTRB(45,0, 35, 35),
+                          child: Image.asset('imagens/botaoplus.png',
+                            height: 88,
+                            width: 88,)
 
                       ),
                    FlatButton(
                       onPressed: null,
-                      padding: EdgeInsets.only(left: 50.0),
-                      child: Image.asset('imagens/plusbutton.png',
-                        height: 85,
-                        width: 85,
+                      padding: EdgeInsets.fromLTRB(75, 0, 35, 35),
+                      child: Image.asset('imagens/gologo.png',
+                        height: 88,
+                        width: 88,
                       ),
                   ),
                       ]),
