@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
 
 
+
 class CircuitosAndamento extends StatelessWidget with NavigationStates {
 
   @override

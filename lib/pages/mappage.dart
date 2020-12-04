@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:bsb_go/model/api.dart';
+import 'package:bsb_go/model/circuito_usuario.dart';
+import 'dart:convert';
 
 
 class MapPage extends StatefulWidget with NavigationStates {
@@ -11,10 +14,10 @@ class MapPage extends StatefulWidget with NavigationStates {
 }
 
 class _MapPageState extends State<MapPage> {
+  Map<String, String> body = {"user_id": "Zjlq1nMf9XS2SrHc6b0gFHFuBTa2"};
   GoogleMapController mapController;
   final Geolocator _geolocator = Geolocator();
-
-
+  Set<Marker> markers = new Set<Marker>();
   // ícone verde para o marcador de local
   BitmapDescriptor pinLocationIcon;
 
@@ -24,8 +27,24 @@ class _MapPageState extends State<MapPage> {
   double lat = -15.7905508;
   double long = -47.8949667;
 
+  var circuitoUsuario = new List<CircuitoUsuario>();
 
-  Set<Marker> markers = new Set<Marker>();
+  _getPointsForUser() {
+    API.getPointsUser(body).then((response) {
+      setState(() {
+        //print(response.statusCode);
+        //print(json.decode(response.body));
+        Iterable lista = json.decode(response.body);
+        circuitoUsuario = lista.map((model) => CircuitoUsuario.fromJson(model)).toList();
+      });
+      //print("Circuito: ${circuitoUsuario.length}");
+    });
+  }
+
+  _MapPageState() {
+    _getPointsForUser();
+  }
+
 
   // define a imagem para o marcador de local
   void setCustomMapPin() async {
@@ -33,6 +52,28 @@ class _MapPageState extends State<MapPage> {
         ImageConfiguration(devicePixelRatio: 2.5),
         'imagens/destination_map_marker.png');
   }
+
+
+  /*void setMap() {
+    Set<Marker> markersAux = new Set<Marker>();
+    circuitoUsuario.forEach((point) {
+      final Marker marker = Marker(
+          markerId: new MarkerId("${point.id}"),
+          position: LatLng(point.localizacao.dLatitude, point.localizacao.dLongitude),
+          icon: pinLocationIcon,
+          infoWindow: InfoWindow(
+              title: point.nome,
+              snippet: "Brasília/DF"
+          ),
+          onTap: () {
+            AddInfoPontos(context, point.nome);
+          }
+      );
+
+      print(marker);
+
+    });
+  }*/
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -47,7 +88,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Catedral de Brasília");
         }
     );
 
@@ -61,7 +102,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Congresso Nacional");
         }
     );
 
@@ -75,7 +116,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Rodoviário do Plano Piloto");
         }
     );
 
@@ -89,7 +130,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Praça dos Três Poderes");
         }
     );
 
@@ -103,7 +144,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Museu Nacional");
         }
     );
 
@@ -117,7 +158,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Torre de TV");
         }
     );
 
@@ -131,7 +172,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Estádio Mané Garrincha");
         }
     );
 
@@ -145,7 +186,7 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context);
+          AddInfoPontos(context, "Memorial JK");
         }
     );
 
@@ -159,10 +200,10 @@ class _MapPageState extends State<MapPage> {
       markers.add(maneGarrincha);
       markers.add(memorialJK);
     });
+
   }
 
-
-  void AddInfoPontos(context) {
+  void AddInfoPontos(context, nomePonto) {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.green[700],
@@ -195,8 +236,7 @@ class _MapPageState extends State<MapPage> {
 
                 Row(
                   children: <Widget>[
-                    Text("  NOME LOCAL                                      250 Pontos\n\n"
-                        "   Aqui ficará a descrição de determinado local\n",
+                    Text("${nomePonto}",
                         style: TextStyle(
                             fontSize: 16,
                             fontFamily: 'RobotoMono',
