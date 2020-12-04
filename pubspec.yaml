@@ -74,6 +74,14 @@ flutter:
     - imagens/botaoplus.png
     - imagens/Wallpaperbsbgo.png
     - imagens/destination_map_marker.png
+    - imagens/catedral.jpg
+    - imagens/congresso.jpg
+    - imagens/mane.jpg
+    - imagens/memorial.jpg
+    - imagens/museunacional.jpg
+    - imagens/praca3poderes.jpg
+    - imagens/rodoviaria.jpg
+    - imagens/torretv.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

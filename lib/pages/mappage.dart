@@ -88,7 +88,9 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Catedral de Brasília");
+          AddInfoPontos(context, "Catedral de Brasília",Image.asset(
+            "imagens/catedral.jpg"
+          ));
         }
     );
 
@@ -102,7 +104,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Congresso Nacional");
+          AddInfoPontos(context, "Congresso Nacional",Image.asset(
+            "imagens/congresso.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -116,7 +121,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Rodoviário do Plano Piloto");
+          AddInfoPontos(context, "Rodoviário do Plano Piloto",Image.asset(
+            "imagens/rodoviaria.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -130,7 +138,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Praça dos Três Poderes");
+          AddInfoPontos(context, "Praça dos Três Poderes",Image.asset(
+            "imagens/praca3poderes.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -144,7 +155,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Museu Nacional");
+          AddInfoPontos(context, "Museu Nacional",Image.asset(
+            "imagens/museunacional.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -158,7 +172,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Torre de TV");
+          AddInfoPontos(context, "Torre de TV",Image.asset(
+            "imagens/torretv.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -172,7 +189,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Estádio Mané Garrincha");
+          AddInfoPontos(context, "Estádio Mané Garrincha",Image.asset(
+            "imagens/mane.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -186,7 +206,10 @@ class _MapPageState extends State<MapPage> {
             snippet: "Brasília/DF"
         ),
         onTap: () {
-          AddInfoPontos(context, "Memorial JK");
+          AddInfoPontos(context, "Memorial JK",Image.asset(
+            "imagens/memorial.jpg",
+            fit: BoxFit.fitWidth,
+          ));
         }
     );
 
@@ -203,7 +226,7 @@ class _MapPageState extends State<MapPage> {
 
   }
 
-  void AddInfoPontos(context, nomePonto) {
+  void AddInfoPontos(context, nomePonto, imagemPonto) {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.green[700],
@@ -212,7 +235,7 @@ class _MapPageState extends State<MapPage> {
           height: MediaQuery
               .of(context)
               .size
-              .height * .88,
+              .height * .98,
           child: Padding(
             padding: const EdgeInsets.all(5.0),
             child: Column(
@@ -222,10 +245,7 @@ class _MapPageState extends State<MapPage> {
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: Image.asset(
-                      "imagens/infobsb.jpg",
-                      fit: BoxFit.fitWidth,
-                    )),
+                    child: imagemPonto),
                 Divider(
                   height: 10,
                   thickness: 1,
@@ -241,6 +261,12 @@ class _MapPageState extends State<MapPage> {
                             fontSize: 16,
                             fontFamily: 'RobotoMono',
                             color: Colors.white)),
+                    Padding(padding: EdgeInsets.fromLTRB(95, 0, 10, 0)),
+                    Text("Pontos: 200",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'RobotoMono',
+                            color: Colors.white)),
 
                   ],
                 ),
@@ -252,19 +278,15 @@ class _MapPageState extends State<MapPage> {
                   endIndent: 0,
                 ),
                 Row(
-
                     children: <Widget>[
                       FlatButton(
                           onPressed: null,
-                          padding: EdgeInsets.fromLTRB(45,0, 35, 35),
+                          padding: EdgeInsets.fromLTRB(90, 0, 10, 0),
                           child: Image.asset('imagens/botaoplus.png',
                             height: 88,
-                            width: 88,)
-
-                      ),
+                            width: 88,)),
                    FlatButton(
                       onPressed: null,
-                      padding: EdgeInsets.fromLTRB(75, 0, 35, 35),
                       child: Image.asset('imagens/gologo.png',
                         height: 88,
                         width: 88,
