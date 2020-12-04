@@ -46,7 +46,7 @@ class _CircuitosState extends State<Circuitos>{
         itemBuilder: (context, index) {
           return FlatButton(
             onPressed: () {
-              //print(circuitos[index].id);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
             },
             color: Colors.green,
             child: Padding(

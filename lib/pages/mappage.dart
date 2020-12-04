@@ -32,12 +32,24 @@ class _MapPageState extends State<MapPage> {
   _getPointsForUser() {
     API.getPointsUser(body).then((response) {
       setState(() {
-        //print(response.statusCode);
-        //print(json.decode(response.body));
         Iterable lista = json.decode(response.body);
         circuitoUsuario = lista.map((model) => CircuitoUsuario.fromJson(model)).toList();
       });
-      //print("Circuito: ${circuitoUsuario.length}");
+     circuitoUsuario.forEach((point) {
+            final Marker marker = Marker(
+            markerId: new MarkerId("${point.id}"),
+            position: LatLng(point.localizacao.dLatitude, point.localizacao.dLongitude),
+            icon: pinLocationIcon,
+            infoWindow: InfoWindow(
+                title: point.nome,
+                snippet: "Brasília/DF"
+            ),
+            onTap: () {
+              AddInfoPontos(context, point.nome);
+            }
+        );
+        markers.add(marker);
+      });
     });
   }
 
@@ -53,180 +65,11 @@ class _MapPageState extends State<MapPage> {
         'imagens/destination_map_marker.png');
   }
 
-
-  /*void setMap() {
-    Set<Marker> markersAux = new Set<Marker>();
-    circuitoUsuario.forEach((point) {
-      final Marker marker = Marker(
-          markerId: new MarkerId("${point.id}"),
-          position: LatLng(point.localizacao.dLatitude, point.localizacao.dLongitude),
-          icon: pinLocationIcon,
-          infoWindow: InfoWindow(
-              title: point.nome,
-              snippet: "Brasília/DF"
-          ),
-          onTap: () {
-            AddInfoPontos(context, point.nome);
-          }
-      );
-
-      print(marker);
-
-    });
-  }*/
-
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
-
-    // Marker Catedral
-    final Marker catedral = Marker(
-        markerId: new MarkerId("1"),
-        position: LatLng(-15.7983367, -47.8777281),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Catedral de Brasília",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Catedral de Brasília",Image.asset(
-            "imagens/catedral.jpg"
-          ));
-        }
-    );
-
-    // Marker Congresso
-    final Marker congresso = Marker(
-        markerId: new MarkerId("2"),
-        position: LatLng(-15.7997067, -47.8663516),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Congresso Nacional",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Congresso Nacional",Image.asset(
-            "imagens/congresso.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    // Marker Rodoviária do Plano Piloto
-    final Marker rodoviaria = Marker(
-        markerId: new MarkerId("3"),
-        position: LatLng(-15.7937789, -47.8857071),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Rodoviário do Plano Piloto",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Rodoviário do Plano Piloto",Image.asset(
-            "imagens/rodoviaria.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    // Marker Praça dos Três Poderes
-    final Marker pracaTresPoderes = Marker(
-        markerId: new MarkerId("4"),
-        position: LatLng(-15.8006637, -47.8634698),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Praça dos Três Poderes",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Praça dos Três Poderes",Image.asset(
-            "imagens/praca3poderes.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    // Marker Museu Nacional
-    final Marker museuNacional = Marker(
-        markerId: new MarkerId("5"),
-        position: LatLng(-15.797301, -47.8803237),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Museu Nacional",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Museu Nacional",Image.asset(
-            "imagens/museunacional.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    // Marker Torre de Tv
-    final Marker torreTV = Marker(
-        markerId: new MarkerId("6"),
-        position: LatLng(-15.7905508, -47.8949667),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Torre de TV",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Torre de TV",Image.asset(
-            "imagens/torretv.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    // Marker Estádio Mané Garrincha
-    final Marker maneGarrincha = Marker(
-        markerId: new MarkerId("7"),
-        position: LatLng(-15.7835139, -47.9013997),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Estádio Mané Garrincha",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Estádio Mané Garrincha",Image.asset(
-            "imagens/mane.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    // Marker Memorial JK
-    final Marker memorialJK = Marker(
-        markerId: new MarkerId("8"),
-        position: LatLng(-15.7842011, -47.9155431),
-        icon: pinLocationIcon,
-        infoWindow: InfoWindow(
-            title: "Memorial JK",
-            snippet: "Brasília/DF"
-        ),
-        onTap: () {
-          AddInfoPontos(context, "Memorial JK",Image.asset(
-            "imagens/memorial.jpg",
-            fit: BoxFit.fitWidth,
-          ));
-        }
-    );
-
-    setState(() {
-      markers.add(catedral);
-      markers.add(congresso);
-      markers.add(rodoviaria);
-      markers.add(pracaTresPoderes);
-      markers.add(museuNacional);
-      markers.add(torreTV);
-      markers.add(maneGarrincha);
-      markers.add(memorialJK);
-    });
-
   }
 
-  void AddInfoPontos(context, nomePonto, imagemPonto) {
+  void AddInfoPontos(context, nomePonto) {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.green[700],
@@ -245,7 +88,10 @@ class _MapPageState extends State<MapPage> {
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: imagemPonto),
+                    child: Image.asset(
+                      "imagens/infobsb.jpg",
+                      fit: BoxFit.fitWidth,
+                    )),
                 Divider(
                   height: 10,
                   thickness: 1,
@@ -306,14 +152,12 @@ class _MapPageState extends State<MapPage> {
         // Store the position in the variable
         _currentPosition = position;
 
-        print('CURRENT POS: $_currentPosition');
-
         // For moving the camera to current location
         mapController.animateCamera(
           CameraUpdate.newCameraPosition(
             CameraPosition(
               target: LatLng(position.latitude, position.longitude),
-              zoom: 12.5,
+              zoom: 17.0,
             ),
           ),
         );
@@ -348,7 +192,7 @@ class _MapPageState extends State<MapPage> {
           GoogleMap(
             initialCameraPosition: CameraPosition(
               target: LatLng(lat, long),
-              zoom: 12.5,
+              zoom: 17.0,
             ),
             myLocationEnabled: true,
             myLocationButtonEnabled: false,
@@ -381,7 +225,7 @@ class _MapPageState extends State<MapPage> {
                                 _currentPosition.latitude,
                                 _currentPosition.longitude,
                               ),
-                              zoom: 12.5,
+                              zoom: 17.0,
                             ),
                           ),
                         );
