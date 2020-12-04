@@ -101,22 +101,20 @@ class _MapPageState extends State<MapPage> {
                   endIndent: 0,
                 ),
 
-                Row(
-                  children: <Widget>[
+
                     Text("${nomePonto}",
+
                         style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: 'RobotoMono',
-                            color: Colors.white)),
-                    Padding(padding: EdgeInsets.fromLTRB(95, 0, 10, 0)),
-                    Text("Pontos: 200",
-                        style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
                             fontFamily: 'RobotoMono',
                             color: Colors.white)),
 
-                  ],
-                ),
+                Text("Pontos: 200",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'RobotoMono',
+                        color: Colors.white)),
                 Divider(
                   height: 10,
                   thickness: 1,
@@ -127,13 +125,13 @@ class _MapPageState extends State<MapPage> {
                 Row(
                     children: <Widget>[
                       FlatButton(
-                          onPressed: null,
+                          onPressed:(){debugPrint("Ponto Visitado!");} ,
                           padding: EdgeInsets.fromLTRB(90, 0, 10, 0),
                           child: Image.asset('imagens/botaoplus.png',
                             height: 88,
                             width: 88,)),
                    FlatButton(
-                      onPressed: null,
+                      onPressed: (){debugPrint("Rota Traçada!");},
                       child: Image.asset('imagens/gologo.png',
                         height: 88,
                         width: 88,

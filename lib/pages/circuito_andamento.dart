@@ -1,3 +1,4 @@
+import 'package:bsb_go/pages/mappage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import '../bloc.navigation_bloc/navigation_bloc.dart';
@@ -16,7 +17,7 @@ class CircuitosAndamento extends StatelessWidget with NavigationStates {
       ),
       backgroundColor: Colors.green,
       body: FlatButton(
-        onPressed: () {},
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));},
         color: Colors.green,
         child: Padding(
           padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
@@ -24,7 +25,7 @@ class CircuitosAndamento extends StatelessWidget with NavigationStates {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Congresso Nacional',
+                'Centro de Brasília',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
