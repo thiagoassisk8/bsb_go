@@ -55,6 +55,7 @@ class _MapPageState extends State<MapPage> {
 
   _MapPageState() {
     _getPointsForUser();
+    print("teste");
   }
 
 
